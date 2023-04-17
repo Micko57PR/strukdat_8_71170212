@@ -11,7 +11,7 @@ class NodePelanggan:
 
 class Kasir:
     def __init__(self):
-        self._items = [None]
+        self._antre = [None]
         self._size = 0
         
     def __len__(self):
@@ -24,27 +24,27 @@ class Kasir:
         if self.is_empty():
             raise ValueError('Gaada Antrean')
         else:
-            item = self._items[0]
+            antre = self._antre[0]
             for i in range(self._size - 1):
-                self._items[i] = self._items[i + 1]
-            self._items[self._size - 1] = None
+                self._antre[i] = self._antre[i + 1]
+            self._antre[self._size - 1] = None
             self._size -= 1
-            return item.getNamaPelanggan()
+            return antre.getNamaPelanggan()
         
     def enqueue(self, namaPelanggan):
-        if self._size == len(self._items):
-            self.resize(2 * len(self._items))
+        if self._size == len(self._antre):
+            self.resize(2 * len(self._antre))
         node = NodePelanggan(namaPelanggan)
-        self._items[self._size] = node
+        self._antre[self._size] = node
         self._size += 1
         
     def resize(self, cap):
-        old_items = self._items
-        self._items = [None] * cap
+        old_antre = self._antre
+        self._antre = [None] * cap
         for i in range(self._size):
-            self._items[i] = old_items[i]
+            self._antre[i] = old_antre[i]
         for i in range(self._size, cap):
-            self._items[i] = "kosong"
+            self._antre[i] = "kosong"
         
     def printAll(self):
         print('=== Kasir ===')
@@ -52,7 +52,7 @@ class Kasir:
             print('Kosong')
         else:
             for i in range(self._size):
-                print(f"{i+1}. {self._items[i].getNamaPelanggan()}")
+                print(f"{i+1}. {self._antre[i].getNamaPelanggan()}")
         print()
         
 # test case program
