@@ -9,8 +9,6 @@ class NodePelanggan:
         self._namaPelanggan = namaPelangganBaru
         
 
-from collections import deque
-
 class Kasir:
     def __init__(self):
         self._items = [None]
